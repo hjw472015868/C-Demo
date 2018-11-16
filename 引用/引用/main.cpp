@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
 }
 #endif
 
-#if 1
+#if 0
 using namespace ::std;//使用标准的命名空间
 namespace One{//使用命名空间定一个名字
     int m = 10;
@@ -55,4 +55,40 @@ int a;
 int &ra = a;
 //int& *p = ra;//这是错误的,企图定义一个引用的指针
 //有空指针没有空引用
+#endif
+
+
+
+#if 1
+using namespace ::std;
+void oneFun(int a){
+    a = 10;
+}
+void twoFun(int& a){
+    a = 10;
+}
+void threeFun(int* a){
+    *a = 10;
+}
+int func(int a){
+    int r = a*a;
+    return r;
+}
+int main(int argc, const char * argv[]){
+    int a , b, c ;
+    a = 1;
+    b = 1;
+    c = 1;
+    oneFun(a);
+    twoFun(b);
+    threeFun(&c);
+    cout << a << endl ;
+    cout << b << endl ;
+    cout << c << endl ;
+    cout << func(5) << endl;
+    return 0;
+}
+
+
+
 #endif
